@@ -1,0 +1,398 @@
+A. EXPERIMENTAL STUDY DESIGN
+
+The raw data for this study is from the following publicly available dataset:-
+Human Activity Recognition Using Smartphones Dataset (Version 1.0)
+
+Complete details of this study is available at the following url:-
+http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
+
+A Brief about the study:-
+
+The experiments have been carried out with a group of 30 volunteers performing six activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) wearing a smartphone (Samsung Galaxy S II) on the waist. Using its embedded accelerometer and gyroscope, the 3-axial linear acceleration and 3-axial angular velocity were captured and recorded.
+
+Based on the raw data collected, the current project attempts to arrive at the mean values of such data & their standard deviations for each volunteer at each activity.
+
+B. Naming convention used for features in this experimental study & this project
+
+Based on the raw signals captured, the study estimates & records values of certain physical movement characteristics as well as it estimates & 
+records certain statistical measures of these physical movement characteristics like mean(), median(), std(), etc. Overall, per record there are such 561 
+features. Our project is concerned with the mean() and std() (standard deviation) measures only - 66 features.
+
+The naming convention used in the experimental study is as follows:-
+a - the physical movement characteristics are obtained from time (t) or frequency (f) domain. This forms the starting prefix for the feature.
+b - this is followed by brief name of physical value being measured:-
+    [BodyAcc,GravityAcc,BodyAccJerk,BodyGyro,BodyGyroJerk,
+     BodyAccMag,GravityAccMag,BodyAccJerkMag,BodyAccJerkMag,BodyGyroMag,
+     BodyGyroJerkMag]
+c - this is followed by a '-' and the statistical measure being estimated:- like '-mean()' or '-std()'
+d - further classification of the physical value in b (if any), separated by '-' :- like for axial classification (X,Y,Z) '-X', '-Y', '-Z'
+
+For this project, a simplification is used in naming the features, which is described below:-
+1 - Since we are concentrating on mean() & std() only so '-mean()' will be removed and by default the variable represents the mean of its measure.
+2 - '-std()' will be replaced by '_sd' and it will form the suffix (last part of the name).
+3 - the further classification (see d above) will follow the core physical value name. '-X' become 'X'
+example 1:- tBodyAcc-mean()-Z becomes tBodyAccZ
+example 2:- tBodyAccJerk-std()-X becomes tBodyAccJerkX_sd
+This is the naming convention used in the cookbook in the next section.
+
+C. CODE BOOK
+
+Below are the column description for Tidy Data of this project.
+
+subjectID
+		Identifier number of subject (or volunteer)
+				Running number between 1 to 30
+				
+activity
+		Activity being performed by the subject
+				One of the 6 possible values:-
+					Walking
+					WalkingUpstairs
+					WalkingDownstairs
+					Sitting 
+					Standing
+					Laying
+					
+tBodyAccX
+		Body Acceleration in X-direction obtained from time domain
+				Mean of the mean values for the (subjectId, activity)
+				Unit of Measure:-
+				
+tBodyAccY          
+		Body Acceleration in Y-direction obtained from time domain
+				Mean of the mean values for the (subjectId, activity)
+				Unit of Measure:-
+				
+tBodyAccZ           
+		Body Acceleration in Z-direction obtained from time domain
+				Mean of the mean values for the (subjectId, activity)
+				Unit of Measure:-
+				
+tBodyAccX_sd           
+		Deviation in Body Acceleration in X-direction obtained from time domain
+				Mean of the standard deviation values for the (subjectId, activity)
+				Unit of Measure:-
+				
+tBodyAccY_sd            
+		Deviation in Body Acceleration in Y-direction obtained from time domain
+				Mean of the standard deviation values for the (subjectId, activity)
+				Unit of Measure:-
+				
+tBodyAccZ_sd           
+		Deviation in Body Acceleration in Z-direction obtained from time domain
+				Mean of the standard deviation values for the (subjectId, activity)
+				Unit of Measure:-
+				
+tGravityAccX        
+		Gravity Acceleration in X-direction obtained from time domain
+				Mean of the mean values for the (subjectId, activity)
+				Unit of Measure:-
+				
+tGravityAccY       
+		Gravity Acceleration in Y-direction obtained from time domain
+				Mean of the mean values for the (subjectId, activity)
+				Unit of Measure:-
+				
+tGravityAccZ        
+		Gravity Acceleration in Z-direction obtained from time domain
+				Mean of the mean values for the (subjectId, activity)
+				Unit of Measure:-
+				
+tGravityAccX_sd        
+		Deviation in Gravity Acceleration in X-direction obtained from time domain
+				Mean of the standard deviation values for the (subjectId, activity)
+				Unit of Measure:-
+				
+tGravityAccY_sd         
+		Deviation in Gravity Acceleration in Y-direction obtained from time domain
+				Mean of the standard deviation values for the (subjectId, activity)
+				Unit of Measure:-
+				
+tGravityAccZ_sd        
+		Deviation in Gravity Acceleration in Y-direction obtained from time domain
+				Mean of the standard deviation values for the (subjectId, activity)
+				Unit of Measure:-
+				
+tBodyAccJerkX       
+		Jerk in Body Acceleration in X-direction obtained from time domain
+				Mean of the mean values for the (subjectId, activity)
+				Unit of Measure:-
+				
+tBodyAccJerkY      
+		Jerk in Body Acceleration in Y-direction obtained from time domain
+				Mean of the mean values for the (subjectId, activity)
+				Unit of Measure:-
+				
+tBodyAccJerkZ       
+		Jerk in Body Acceleration in Z-direction obtained from time domain
+				Mean of the mean values for the (subjectId, activity)
+				Unit of Measure:-
+				
+tBodyAccJerkX_sd       
+		Deviation in Jerk in Body Acceleration in X-direction obtained from time domain
+				Mean of the standard deviation values for the (subjectId, activity)
+				Unit of Measure:-
+				
+tBodyAccJerkY_sd        
+		Deviation in Jerk in Body Acceleration in Y-direction obtained from time domain
+				Mean of the standard deviation values for the (subjectId, activity)
+				Unit of Measure:-
+				
+tBodyAccJerkZ_sd       
+		Deviation in Jerk in Body Acceleration in Z-direction obtained from time domain
+				Mean of the standard deviation values for the (subjectId, activity)
+				Unit of Measure:-
+				
+tBodyGyroX          
+		Body Gyro in X-direction obtained from time domain
+				Mean of the mean values for the (subjectId, activity)
+				Unit of Measure:-
+				
+tBodyGyroY         
+		Body Gyro in Y-direction obtained from time domain
+				Mean of the mean values for the (subjectId, activity)
+				Unit of Measure:-
+				
+tBodyGyroZ          
+		Body Gyro in Z-direction obtained from time domain
+				Mean of the mean values for the (subjectId, activity)
+				Unit of Measure:-
+				
+tBodyGyroX_sd          
+		Deviation in Body Gyro in X-direction obtained from time domain
+				Mean of the standard deviation values for the (subjectId, activity)
+				Unit of Measure:-
+				
+tBodyGyroY_sd           
+		Deviation in Body Gyro in Y-direction obtained from time domain
+				Mean of the standard deviation values for the (subjectId, activity)
+				Unit of Measure:-
+				
+tBodyGyroZ_sd          
+		Deviation in Body Gyro in Z-direction obtained from time domain
+				Mean of the standard deviation values for the (subjectId, activity)
+				Unit of Measure:-
+				
+tBodyGyroJerkX      
+		Jerk in Body Gyro in X-direction obtained from time domain
+				Mean of the mean values for the (subjectId, activity)
+				Unit of Measure:-
+				
+tBodyGyroJerkY     
+		Jerk in Body Gyro in Y-direction obtained from time domain
+				Mean of the mean values for the (subjectId, activity)
+				Unit of Measure:-
+				
+tBodyGyroJerkZ      
+		Jerk in Body Gyro in Z-direction obtained from time domain
+				Mean of the mean values for the (subjectId, activity)
+				Unit of Measure:-
+				
+tBodyGyroJerkX_sd      
+		Deviation in Jerk in Body Gyro in X-direction obtained from time domain
+				Mean of the standard deviation values for the (subjectId, activity)
+				Unit of Measure:-
+				
+tBodyGyroJerkY_sd       
+		Deviation in Jerk in Body Gyro in Y-direction obtained from time domain
+				Mean of the standard deviation values for the (subjectId, activity)
+				Unit of Measure:-
+				
+tBodyGyroJerkZ_sd      
+		Deviation in Jerk in Body Gyro in Z-direction obtained from time domain
+				Mean of the standard deviation values for the (subjectId, activity)
+				Unit of Measure:-
+				
+tBodyAccMag          
+		Body Acceleration Magnitude obtained from time domain
+				Mean of the mean values for the (subjectId, activity)
+				Unit of Measure:-
+				
+tBodyAccMag_sd          
+		Deviation in Body Acceleration Magnitude obtained from time domain
+				Mean of the standard deviation values for the (subjectId, activity)
+				Unit of Measure:-
+				
+tGravityAccMag       
+		Gravity Acceleration Magnitude obtained from time domain
+				Mean of the mean values for the (subjectId, activity)
+				Unit of Measure:-
+				
+tGravityAccMag_sd       
+		Deviation in Gravity Acceleration Magnitude obtained from time domain
+				Mean of the standard deviation values for the (subjectId, activity)
+				Unit of Measure:-
+				
+tBodyAccJerkMag     
+		Jerk in Body Acceleration Magnitude obtained from time domain
+				Mean of the mean values for the (subjectId, activity)
+				Unit of Measure:-
+				
+tBodyAccJerkMag_sd     
+		Deviation in Jerk in Body Acceleration Magnitude obtained from time domain
+				Mean of the standard deviation values for the (subjectId, activity)
+				Unit of Measure:-
+				
+tBodyGyroMag        
+		Body Gyro Magnitude obtained from time domain
+				Mean of the mean values for the (subjectId, activity)
+				Unit of Measure:-
+				
+tBodyGyroMag_sd         
+		Deviation in Body Gyro Magnitude obtained from time domain
+				Mean of the standard deviation values for the (subjectId, activity)
+				Unit of Measure:-
+				
+tBodyGyroJerkMag     
+		Jerk in Body Gyro Magnitude obtained from time domain
+				Mean of the mean values for the (subjectId, activity)
+				Unit of Measure:-
+				
+tBodyGyroJerkMag_sd     
+		Deviation in Jerk in Body Gyro Magnitude obtained from time domain
+				Mean of the standard deviation values for the (subjectId, activity)
+				Unit of Measure:-
+				
+fBodyAccX           
+		Body Acceleration in X-direction obtained from frequency domain
+				Mean of the mean values for the (subjectId, activity)
+				Unit of Measure:-
+				
+fBodyAccY          
+		Body Acceleration in Y-direction obtained from frequency domain
+				Mean of the mean values for the (subjectId, activity)
+				Unit of Measure:-
+				
+fBodyAccZ           
+		Body Acceleration in Z-direction obtained from frequency domain
+				Mean of the mean values for the (subjectId, activity)
+				Unit of Measure:-
+				
+fBodyAccX_sd           
+		Deviation in Body Acceleration in X-direction obtained from frequency domain
+				Mean of the standard deviation values for the (subjectId, activity)
+				Unit of Measure:-
+				
+fBodyAccY_sd            
+		Deviation in Body Acceleration in Y-direction obtained from frequency domain
+				Mean of the standard deviation values for the (subjectId, activity)
+				Unit of Measure:-
+				
+fBodyAccZ_sd           
+		Deviation in Body Acceleration in Z-direction obtained from frequency domain
+				Mean of the standard deviation values for the (subjectId, activity)
+				Unit of Measure:-
+				
+fBodyAccJerkX       
+		Jerk in Body Acceleration in X-direction obtained from frequency domain
+				Mean of the mean values for the (subjectId, activity)
+				Unit of Measure:-
+				
+fBodyAccJerkY      
+		Jerk in Body Acceleration in Y-direction obtained from frequency domain
+				Mean of the mean values for the (subjectId, activity)
+				Unit of Measure:-
+				
+fBodyAccJerkZ       
+		Jerk in Body Acceleration in Z-direction obtained from frequency domain
+				Mean of the mean values for the (subjectId, activity)
+				Unit of Measure:-
+				
+fBodyAccJerkX_sd      
+		Deviation in Jerk in Body Acceleration in X-direction obtained from frequency domain
+				Mean of the standard deviation values for the (subjectId, activity)
+				Unit of Measure:-
+				
+fBodyAccJerkY_sd        
+		Deviation in Jerk in Body Acceleration in Y-direction obtained from frequency domain
+				Mean of the standard deviation values for the (subjectId, activity)
+				Unit of Measure:-
+				
+fBodyAccJerkZ_sd       
+		Deviation in Jerk in Body Acceleration in Z-direction obtained from frequency domain
+				Mean of the standard deviation values for the (subjectId, activity)
+				Unit of Measure:-
+				
+fBodyGyroX          
+		Body Gyro in X-direction obtained from frequency domain
+				Mean of the mean values for the (subjectId, activity)
+				Unit of Measure:-
+				
+fBodyGyroY         
+		Body Gyro in Y-direction obtained from frequency domain
+				Mean of the mean values for the (subjectId, activity)
+				Unit of Measure:-
+				
+fBodyGyroZ          
+		Body Gyro in Z-direction obtained from frequency domain
+				Mean of the mean values for the (subjectId, activity)
+				Unit of Measure:-
+				
+fBodyGyroX_sd          
+		Deviation in Body Gyro in X-direction obtained from frequency domain
+				Mean of the standard deviation values for the (subjectId, activity)
+				Unit of Measure:-
+				
+fBodyGyroY_sd           
+		Deviation in Body Gyro in Y-direction obtained from frequency domain
+				Mean of the standard deviation values for the (subjectId, activity)
+				Unit of Measure:-
+				
+fBodyGyroZ_sd          
+		Deviation in Body Gyro in Z-direction obtained from frequency domain
+				Mean of the standard deviation values for the (subjectId, activity)
+				Unit of Measure:-
+				
+fBodyAccMag          
+		Body Acceleration Magnitude obtained from frequency domain
+				Mean of the mean values for the (subjectId, activity)
+				Unit of Measure:-
+				
+fBodyAccMag_sd         
+		Deviation in Body Acceleration Magnitude obtained from frequency domain
+				Mean of the standard deviation values for the (subjectId, activity)
+				Unit of Measure:-
+				
+fBodyAccJerkMag  
+		Jerk in Body Acceleration Magnitude obtained from frequency domain
+				Mean of the mean values for the (subjectId, activity)
+				Unit of Measure:-
+				
+fBodyAccJerkMag_sd  
+		Deviation in Jerk in Body Acceleration Magnitude obtained from frequency domain
+				Mean of the standard deviation values for the (subjectId, activity)
+				Unit of Measure:-
+				
+fBodyGyroMag    
+		Body Gyro Magnitude obtained from frequency domain
+				Mean of the mean values for the (subjectId, activity)
+				Unit of Measure:-
+				
+fBodyGyroMag_sd     
+		Deviation in Body Gyro Magnitude obtained from frequency domain
+				Mean of the standard deviation values for the (subjectId, activity)
+				Unit of Measure:-
+				
+fBodyGyroJerkMag 
+		Jerk in Body Gyro Magnitude obtained from frequency domain
+				Mean of the mean values for the (subjectId, activity)
+				Unit of Measure:-
+				
+fBodyBodyGyroJerkMag_sd 
+		Deviation in Jerk in Body Gyro Magnitude obtained from frequency domain
+				Mean of the standard deviation values for the (subjectId, activity)
+				Unit of Measure:-
+				
+ 
+D. SUMMARY CHOICES
+
+Based on the raw info captured from the device, the experimental setup is able to estimate the mean & standard deviation of the physical characteristics and 
+store them. Thus in each row of data - means and standard deviations of some physical characteristics are stored for a particular subject during a particular 
+activity. Multiple rows of data are captured for a subject for a particular activity. 
+
+First part of the project collates the info mentioned above from various sources into one data table - XTidy.
+
+The second part of the project summarizes the data from first part to arrive at the average (or mean) values of physical characteristics for each subject & 
+each activity combination. Since there are 30 subjects and 6 activities and all subjects have undergone all activities, there should be 30*6 = 180 rows.
+
+-------------------
